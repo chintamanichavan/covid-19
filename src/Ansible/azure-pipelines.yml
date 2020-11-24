@@ -4,12 +4,12 @@ trigger:
     - master
 variables:
   buildConfiguration: 'Release'
-  location: 'West US 2'
-  acrHostName: 'cswebappdocker004acr.azurecr.io'
-  acrName: 'cswebappdocker004acr'
-  rgName: 'cswebappdocker004-rg'
-  imageName: 'cswebappdocker004'
-  webAppName: 'cswebappdocker004'
+  location: 'East US'
+  acrHostName: 'covidContainerGroup.azurecr.io'
+  acrName: 'covidContainerGroup'
+  rgName: 'covid-19-rg'
+  imageName: 'covidContainerGroup'
+  webAppName: 'covidContainerGroup'
 
 stages:
 
@@ -18,7 +18,7 @@ stages:
   jobs:
   - job: BuildAndTest
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'Ubuntu-latest'
     steps:
 
     # Create or update the ACR resource
@@ -105,7 +105,7 @@ stages:
   jobs:
   - job: Release
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'Ubuntu-latest'
     steps:
     # Don't clone the repo
     - checkout: none
