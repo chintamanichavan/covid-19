@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_container_group" "acg" {
-  name                = "covid-container-group"
+  name                = "covidContainerGroup"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   ip_address_type     = "public"
